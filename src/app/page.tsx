@@ -48,6 +48,17 @@ export default function Home() {
     });
   };
 
+  // Scroll handler for hero buttons
+  const scrollToSection = (sectionId: string) => {
+    const navbar = document.querySelector('header');
+    const element = document.getElementById(sectionId);
+    if (element) {
+      const yOffset = navbar ? navbar.getBoundingClientRect().height : 0;
+      const y = element.getBoundingClientRect().top + window.pageYOffset - yOffset;
+      window.scrollTo({ top: y, behavior: 'smooth' });
+    }
+  };
+
   return (
     <>
       <div className="bg-yellow-400 min-h-screen flex items-center justify-center py-6 sm:py-8 relative z-0 mt-[80px] sm:mt-[88px] lg:mt-[96px]" id="hero">
@@ -74,10 +85,14 @@ export default function Home() {
                 <p className="mt-2 mb-4 sm:mb-6 text-base sm:text-lg md:text-xl lg:text-2xl leading-8 whitespace-nowrap font-tiro-devanagari">
                   Where there&apos;s less,<br />We give our best.
                 </p>
-                <a href="#about" className="inline-flex items-center gap-2 bg-yellow-400 text-red-800 font-semibold px-4 sm:px-5 py-2 sm:py-2.5 rounded-full shadow hover:bg-yellow-500 transition-colors duration-200 font-tiro-devanagari text-sm sm:text-base">
+                <button
+                  type="button"
+                  onClick={() => scrollToSection('about')}
+                  className="inline-flex items-center gap-2 bg-yellow-400 text-red-800 font-semibold px-4 sm:px-5 py-2 sm:py-2.5 rounded-full shadow hover:bg-yellow-500 transition-colors duration-200 font-tiro-devanagari text-sm sm:text-base"
+                >
                   <FaChevronDown className="text-base sm:text-lg" />
                   Show More
-                </a>
+                </button>
               </div>
             </div>
 
@@ -86,10 +101,14 @@ export default function Home() {
               <div className="bg-red-800 p-4 sm:p-6 lg:p-8 rounded-lg text-white text-center w-full max-w-md mb-4 flex flex-col items-center">
                 <h2 className="text-lg sm:text-xl md:text-2xl font-bold font-tiro-devanagari">Our Programs</h2>
                 <p className="mt-2 text-sm sm:text-base md:text-lg font-tiro-devanagari">Explore paths to grow, serve, and heal</p>
-                <a href="#projects" className="mt-3 sm:mt-4 inline-flex items-center gap-2 bg-yellow-400 text-red-800 font-semibold px-4 sm:px-5 py-2 sm:py-2.5 rounded-full shadow hover:bg-yellow-500 transition-colors duration-200 font-tiro-devanagari text-sm sm:text-base">
+                <button
+                  type="button"
+                  onClick={() => scrollToSection('projects')}
+                  className="mt-3 sm:mt-4 inline-flex items-center gap-2 bg-yellow-400 text-red-800 font-semibold px-4 sm:px-5 py-2 sm:py-2.5 rounded-full shadow hover:bg-yellow-500 transition-colors duration-200 font-tiro-devanagari text-sm sm:text-base"
+                >
                   <FaSearch className="text-base sm:text-lg" />
                   Browse Programs
-                </a>
+                </button>
               </div>
               <div className="w-full max-w-md">
                 <Image
@@ -118,10 +137,14 @@ export default function Home() {
               <div className="bg-red-800 p-4 sm:p-6 lg:p-8 rounded-lg text-white text-center w-full max-w-md flex flex-col items-center">
                 <h2 className="text-lg sm:text-xl md:text-2xl font-bold font-tiro-devanagari">Give with Grace</h2>
                 <p className="mt-2 text-sm sm:text-base md:text-lg font-tiro-devanagari">Your gift brings light and hope</p>
-                <a href="#donate" className="mt-3 sm:mt-4 inline-flex items-center gap-2 bg-yellow-400 text-red-800 font-semibold px-4 sm:px-5 py-2 sm:py-2.5 rounded-full shadow hover:bg-yellow-500 transition-colors duration-200 font-tiro-devanagari text-sm sm:text-base">
+                <button
+                  type="button"
+                  onClick={() => scrollToSection('donate')}
+                  className="mt-3 sm:mt-4 inline-flex items-center gap-2 bg-yellow-400 text-red-800 font-semibold px-4 sm:px-5 py-2 sm:py-2.5 rounded-full shadow hover:bg-yellow-500 transition-colors duration-200 font-tiro-devanagari text-sm sm:text-base"
+                >
                   <FaHandHoldingHeart className="text-base sm:text-lg" />
                   Donate Now
-                </a>
+                </button>
               </div>
             </div>
           </div>
