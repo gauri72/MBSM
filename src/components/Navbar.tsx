@@ -73,6 +73,22 @@ export default function Navbar() {
 
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-red-800/95 backdrop-blur-md shadow-lg' : 'bg-red-800'}`}>
+      <style jsx>{`
+        @keyframes pulse-flash {
+          0% {
+            box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7);
+          }
+          70% {
+            box-shadow: 0 0 0 10px rgba(255, 255, 255, 0);
+          }
+          100% {
+            box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+          }
+        }
+        .donate-button {
+          animation: pulse-flash 2s infinite;
+        }
+      `}</style>
       <div className="absolute top-0 left-0 w-full h-8 sm:h-10 bg-spiritual-orange transform -skew-y-3 origin-top-left -translate-y-full" style={{ 
         WebkitTransform: 'skewY(-3deg) translateY(-100%)',
         transform: 'skewY(-3deg) translateY(-100%)',
