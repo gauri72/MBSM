@@ -1,5 +1,6 @@
 'use client';
 
+import { useState, useEffect } from 'react';
 import Logo from './Logo';
 import { FaInstagram, FaYoutube } from 'react-icons/fa';
 
@@ -12,6 +13,30 @@ const footerNavigation = [
 ];
 
 export default function Footer() {
+  const [activeSection, setActiveSection] = useState('hero');
+
+  useEffect(() => {
+    const handleScroll = () => {
+      // Determine active section based on scroll position
+      const sections = footerNavigation.map(item => item.href.substring(1));
+      const navbarHeight = window.innerWidth >= 1024 ? 88 : 72;
+      
+      for (let i = sections.length - 1; i >= 0; i--) {
+        const section = document.getElementById(sections[i]);
+        if (section) {
+          const sectionTop = section.offsetTop - navbarHeight - 100; // 100px offset for better detection
+          if (window.scrollY >= sectionTop) {
+            setActiveSection(sections[i]);
+            break;
+          }
+        }
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
@@ -44,16 +69,26 @@ export default function Footer() {
           </div>
 
           {/* Page Links */}
-          <div className="flex flex-wrap justify-center md:flex-grow md:justify-center gap-x-6 sm:gap-x-8 gap-y-2 mb-4 md:mb-0">
-            {footerNavigation.map((item) => (
+          <div className="flex flex-col items-center">
+            <h3 className="text-lg sm:text-xl font-bold mb-2 text-yellow-400 font-tiro-devanagari text-center">Quick Links</h3>
+            <div className="flex flex-wrap justify-center gap-x-8 sm:gap-x-10 gap-y-3 mb-4 md:mb-0">
+              {footerNavigation.map((item) => {
+                const isActive = activeSection === item.href.substring(1);
+                return (
               <button
                 key={item.name}
                 onClick={() => scrollToSection(item.href.substring(1))}
-                className="text-sm sm:text-base font-semibold leading-6 text-white hover:text-yellow-400 transition-colors duration-200 font-tiro-devanagari"
+                    className={`text-base sm:text-lg font-semibold leading-6 transition-all duration-300 font-tiro-devanagari px-3 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-opacity-50 ${
+                      isActive 
+                        ? 'text-black bg-yellow-400 scale-110 shadow-lg' 
+                        : 'text-white hover:text-black hover:bg-yellow-400 hover:scale-110 active:scale-95'
+                    }`}
               >
                 {item.name}
               </button>
-            ))}
+                );
+              })}
+            </div>
           </div>
 
           {/* Social Icons */}

@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import { useState } from 'react';
-import DonateSection from '@/components/DonateSection';
+import DonateSection from '../components/DonateSection';
 import ProjectsSection from '@/components/ProjectsSection';
 import AboutSection from '@/components/AboutSection';
 import AIChatWidget from '@/components/AIChatWidget';
@@ -61,7 +61,7 @@ export default function Home() {
 
   return (
     <>
-      <div className="bg-yellow-400 min-h-screen flex items-center justify-center py-6 sm:py-8 relative z-0 mt-[80px] sm:mt-[88px] lg:mt-[96px]" id="hero">
+      <div className="bg-yellow-400 min-h-screen pt-[calc(48px+96px)] sm:pt-[calc(48px+80px)] lg:pt-[calc(56px+120px)] pb-4 sm:pb-6 lg:pb-8 relative z-0" id="hero">
         <div className="absolute top-0 left-0 w-full h-8 bg-spiritual-orange transform skew-y-3 origin-top-left -translate-y-full" style={{ 
           WebkitTransform: 'skewY(3deg) translateY(-100%)',
           transform: 'skewY(3deg) translateY(-100%)',
@@ -74,23 +74,23 @@ export default function Home() {
           WebkitBackfaceVisibility: 'hidden',
           backfaceVisibility: 'hidden'
         }}></div>
-        <div className="mx-auto max-w-7xl px-3 sm:px-4 lg:px-8 w-full">
+        <div className="w-full px-3 sm:px-4 lg:px-8">
           <div className="lg:grid lg:grid-cols-3 lg:gap-x-4 items-center">
             {/* First Column - Main Card */}
-            <div className="lg:col-span-1 flex flex-col justify-center items-center text-gray-900 text-center mb-6 lg:mb-0 pt-8 lg:pt-0">
-              <div className="bg-red-800 p-4 sm:p-6 lg:p-8 rounded-lg text-white text-center w-full max-w-md flex flex-col items-center justify-center">
-                <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-3 sm:mb-4 font-tiro-devanagari">
+            <div className="lg:col-span-1 flex flex-col items-center text-gray-900 text-center mb-6 lg:mb-0 h-full">
+              <div className="bg-red-800 p-4 sm:p-6 lg:p-8 rounded-lg text-white text-center w-full max-w-md flex flex-col items-center justify-center h-full">
+                <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold tracking-tight mb-3 sm:mb-4 font-tiro-devanagari">
                   MANGAL<br />BHAKT<br />SEVA<br />MANDAL
                 </h1>
-                <p className="mt-2 mb-4 sm:mb-6 text-base sm:text-lg md:text-xl lg:text-2xl leading-8 whitespace-nowrap font-tiro-devanagari">
+                <p className="mt-2 mb-4 sm:mb-6 text-base sm:text-lg md:text-xl lg:text-3xl leading-8 whitespace-nowrap font-tiro-devanagari">
                   Where there&apos;s less,<br />We give our best.
                 </p>
                 <button
                   type="button"
                   onClick={() => scrollToSection('about')}
-                  className="inline-flex items-center gap-2 bg-yellow-400 text-red-800 font-semibold px-4 sm:px-5 py-2 sm:py-2.5 rounded-full shadow hover:bg-yellow-500 transition-colors duration-200 font-tiro-devanagari text-sm sm:text-base"
+                  className="inline-flex items-center gap-2 bg-yellow-400 text-red-800 font-semibold px-4 sm:px-5 lg:px-7 py-2 sm:py-2.5 lg:py-3 rounded-full shadow hover:bg-yellow-500 transition-colors duration-200 font-tiro-devanagari text-sm sm:text-base lg:text-lg"
                 >
-                  <FaChevronDown className="text-base sm:text-lg" />
+                  <FaChevronDown className="text-base sm:text-lg lg:text-xl" />
                   Show More
                 </button>
               </div>
