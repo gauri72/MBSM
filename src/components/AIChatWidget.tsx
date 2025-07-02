@@ -53,7 +53,7 @@ const AIChatWidget = () => {
       {/* Chat Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="bg-red-800 text-white p-4 rounded-full shadow-lg hover:bg-red-900 transition-colors duration-200"
+        className="bg-yellow-400 text-red-800 p-4 rounded-full shadow-lg hover:bg-yellow-500 transition-colors duration-200 border-2 border-red-800"
       >
         {isOpen ? <FaTimes size={24} /> : <FaRobot size={24} />}
       </button>

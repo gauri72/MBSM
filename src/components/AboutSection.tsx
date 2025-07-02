@@ -48,11 +48,11 @@ const AboutSection = () => {
                 src="/images/about-image-placeholder.jpg"
                 alt="About Us Image"
                 fill
-                className="object-cover"
+                className="image-zoom object-cover"
                 priority
               />
               {/* Since 1985 Badge */}
-              <span className="absolute bottom-4 sm:bottom-6 right-4 sm:right-6 bg-yellow-400 text-[#8B0000] font-bold px-5 sm:px-7 py-2 sm:py-3 rounded-full shadow-lg text-lg sm:text-xl">SINCE 1985</span>
+              <span className="absolute bottom-4 sm:bottom-6 right-4 sm:right-6 bg-yellow-400 text-[#8B0000] font-bold px-5 sm:px-7 py-2 sm:py-3 rounded-full shadow-lg text-lg sm:text-xl z-10">SINCE 1985</span>
             </div>
           </div>
         </div>

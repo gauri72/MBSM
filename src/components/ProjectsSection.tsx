@@ -347,12 +347,12 @@ const ProjectsSection = () => {
                     perspective: '1000'
                   }}
                 >
-                  <div className="relative w-full h-40 sm:h-48 mb-3 sm:mb-4">
+                  <div className="relative w-full h-40 sm:h-48 mb-3 sm:mb-4 overflow-hidden rounded-lg">
                     <Image
                       src={project.image}
                       alt={project.title}
                       fill
-                      className="object-cover rounded-lg"
+                      className="image-zoom object-cover rounded-lg"
                       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                       loading="lazy"
                       style={{

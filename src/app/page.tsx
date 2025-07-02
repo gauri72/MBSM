@@ -110,13 +110,13 @@ export default function Home() {
                   Browse Programs
                 </button>
               </div>
-              <div className="w-full max-w-md">
+              <div className="w-full max-w-md image-zoom-container rounded-lg shadow-lg">
                 <Image
                   src="/images/hero-image-1.jpg"
                   alt="Our Programs Image"
                   width={400}
                   height={450}
-                  className="rounded-lg shadow-lg object-cover w-full h-[300px] sm:h-[350px] md:h-[400px]"
+                  className="image-zoom object-cover w-full h-[300px] sm:h-[350px] md:h-[400px]"
                   priority
                 />
               </div>
@@ -124,13 +124,13 @@ export default function Home() {
 
             {/* Third Column - Give with Grace Block */}
             <div className="lg:col-span-1 flex flex-col items-center justify-center mt-4 lg:mt-0">
-              <div className="w-full max-w-md mb-4">
+              <div className="w-full max-w-md mb-4 image-zoom-container rounded-lg shadow-lg">
                 <Image
                   src="/images/hero-image-2.jpg"
                   alt="Donate Image"
                   width={400}
                   height={450}
-                  className="rounded-lg shadow-lg object-cover w-full h-[300px] sm:h-[350px] md:h-[400px] object-top"
+                  className="image-zoom object-cover w-full h-[300px] sm:h-[350px] md:h-[400px] object-top"
                   priority
                 />
               </div>

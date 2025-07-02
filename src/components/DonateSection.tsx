@@ -19,7 +19,7 @@ const DonateSection = () => {
                 src="/donate/donate-image-1.jpg"
                 alt="Donate Section Image 1"
                   fill
-                className="object-cover"
+                className="image-zoom object-cover"
                 priority
                 />
               </div>
@@ -33,7 +33,7 @@ const DonateSection = () => {
                 src="/donate/qr-code.png"
                 alt="Donation QR Code"
                 fill
-                className="object-contain"
+                className="image-zoom object-contain"
                 sizes="(max-width: 768px) 250px, 300px"
               />
             </div>
@@ -50,7 +50,7 @@ const DonateSection = () => {
                 src="/donate/donate-image-2.jpg"
                 alt="Donate Section Image 2"
                 fill
-                className="object-cover"
+                className="image-zoom object-cover"
                 priority
               />
             </div>
