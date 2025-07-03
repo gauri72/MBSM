@@ -147,7 +147,7 @@ export default function Navbar() {
       {mobileMenuOpen && (
         <div className="lg:hidden">
           <div className="fixed inset-0 z-50 bg-black/20 backdrop-blur-sm" onClick={() => setMobileMenuOpen(false)} />
-          <div className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-red-800 px-3 sm:px-6 py-4 sm:py-6 sm:max-w-sm md:max-w-md sm:ring-1 sm:ring-gray-900/10">
+          <div className="fixed inset-0 z-50 w-full h-screen overflow-y-auto bg-red-800 px-3 sm:px-6 py-4 sm:py-6 sm:max-w-sm md:max-w-md sm:ring-1 sm:ring-gray-900/10">
             <div className="flex items-center justify-between">
               <button onClick={() => scrollToSection('hero')} className="-m-1 p-1 sm:-m-1.5 sm:p-1.5 md:-m-2 md:p-2">
                 <Logo />

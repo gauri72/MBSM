@@ -3,7 +3,7 @@ import Image from 'next/image';
 const DonateSection = () => {
   return (
     <section id="donate" className="w-full min-h-screen bg-[#8B0000] py-12 sm:py-16 px-4 sm:px-8">
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-7xl mx-auto md:flex md:flex-col md:justify-center md:min-h-[calc(100vh-56px)]">
         <div className="text-center mb-8 sm:mb-12 mt-4">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 sm:mb-6">Donate Us</h2>
           <div className="text-lg sm:text-xl text-white/90 max-w-2xl mx-auto">
