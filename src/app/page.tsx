@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { useState } from 'react';
 import DonateSection from '../components/DonateSection';
 import ProjectsSection from '@/components/ProjectsSection';
+import PublicationsSection from '@/components/PublicationsSection';
 import AboutSection from '@/components/AboutSection';
 import AIChatWidget from '@/components/AIChatWidget';
 import { FaSearch, FaHandHoldingHeart, FaChevronDown, FaMapMarkerAlt, FaEnvelope, FaPhone } from 'react-icons/fa';
@@ -54,7 +55,14 @@ export default function Home() {
     const element = document.getElementById(sectionId);
     if (element) {
       const yOffset = navbar ? navbar.getBoundingClientRect().height : 0;
-      const y = element.getBoundingClientRect().top + window.pageYOffset - yOffset;
+      const elementPosition = element.getBoundingClientRect().top;
+      const elementHeight = element.offsetHeight;
+      const viewportHeight = window.innerHeight;
+      
+      // Calculate position to center the section
+      const centerOffset = (viewportHeight - elementHeight) / 2;
+      const y = elementPosition + window.pageYOffset - yOffset - centerOffset;
+      
       window.scrollTo({ top: y, behavior: 'smooth' });
     }
   };
@@ -76,8 +84,34 @@ export default function Home() {
         }}></div>
         <div className="w-full px-3 sm:px-4 lg:px-8">
           <div className="lg:grid lg:grid-cols-3 lg:gap-x-4 items-center">
-            {/* First Column - Main Card */}
-            <div className="lg:col-span-1 flex flex-col items-center text-gray-900 text-center mb-6 lg:mb-0 h-full">
+            {/* First Column - Give with Grace Block */}
+            <div className="lg:col-span-1 flex flex-col items-center justify-center mb-6 lg:mb-0">
+              <div className="w-full max-w-md mb-4 image-zoom-container rounded-lg shadow-lg">
+                <Image
+                  src="/images/hero-image-2.jpg"
+                  alt="Donate Image"
+                  width={400}
+                  height={450}
+                  className="image-zoom object-cover w-full h-[300px] sm:h-[350px] md:h-[400px] object-top"
+                  priority
+                />
+              </div>
+              <div className="bg-red-800 p-4 sm:p-6 lg:p-8 rounded-lg text-white text-center w-full max-w-md flex flex-col items-center">
+                <h2 className="text-lg sm:text-xl md:text-2xl font-bold font-tiro-devanagari">Give with Grace</h2>
+                <p className="mt-2 text-sm sm:text-base md:text-lg font-tiro-devanagari">Your gift brings light and hope</p>
+                <button
+                  type="button"
+                  onClick={() => scrollToSection('donate')}
+                  className="mt-3 sm:mt-4 inline-flex items-center gap-2 bg-yellow-400 text-red-800 font-semibold px-4 sm:px-5 py-2 sm:py-2.5 rounded-full shadow hover:bg-yellow-500 transition-colors duration-200 font-tiro-devanagari text-sm sm:text-base"
+                >
+                  <FaHandHoldingHeart className="text-base sm:text-lg" />
+                  Donate Now
+                </button>
+              </div>
+            </div>
+
+            {/* Second Column - Main Card */}
+            <div className="lg:col-span-1 flex flex-col items-center text-gray-900 text-center mt-4 lg:mt-0 h-full">
               <div className="bg-red-800 p-4 sm:p-6 lg:p-8 rounded-lg text-white text-center w-full max-w-md flex flex-col items-center justify-center h-full">
                 <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold tracking-tight mb-3 sm:mb-4 font-tiro-devanagari">
                   MANGAL<br />BHAKT<br />SEVA<br />MANDAL
@@ -96,7 +130,7 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Second Column - Our Programs Block */}
+            {/* Third Column - Our Programs Block */}
             <div className="lg:col-span-1 flex flex-col items-center justify-center mt-4 lg:mt-0">
               <div className="bg-red-800 p-4 sm:p-6 lg:p-8 rounded-lg text-white text-center w-full max-w-md mb-4 flex flex-col items-center">
                 <h2 className="text-lg sm:text-xl md:text-2xl font-bold font-tiro-devanagari">Our Programs</h2>
@@ -121,32 +155,6 @@ export default function Home() {
                 />
               </div>
             </div>
-
-            {/* Third Column - Give with Grace Block */}
-            <div className="lg:col-span-1 flex flex-col items-center justify-center mt-4 lg:mt-0">
-              <div className="w-full max-w-md mb-4 image-zoom-container rounded-lg shadow-lg">
-                <Image
-                  src="/images/hero-image-2.jpg"
-                  alt="Donate Image"
-                  width={400}
-                  height={450}
-                  className="image-zoom object-cover w-full h-[300px] sm:h-[350px] md:h-[400px] object-top"
-                  priority
-                />
-              </div>
-              <div className="bg-red-800 p-4 sm:p-6 lg:p-8 rounded-lg text-white text-center w-full max-w-md flex flex-col items-center">
-                <h2 className="text-lg sm:text-xl md:text-2xl font-bold font-tiro-devanagari">Give with Grace</h2>
-                <p className="mt-2 text-sm sm:text-base md:text-lg font-tiro-devanagari">Your gift brings light and hope</p>
-                <button
-                  type="button"
-                  onClick={() => scrollToSection('donate')}
-                  className="mt-3 sm:mt-4 inline-flex items-center gap-2 bg-yellow-400 text-red-800 font-semibold px-4 sm:px-5 py-2 sm:py-2.5 rounded-full shadow hover:bg-yellow-500 transition-colors duration-200 font-tiro-devanagari text-sm sm:text-base"
-                >
-                  <FaHandHoldingHeart className="text-base sm:text-lg" />
-                  Donate Now
-                </button>
-              </div>
-            </div>
           </div>
         </div>
       </div>
@@ -156,6 +164,9 @@ export default function Home() {
 
       {/* Projects Section */}
       <ProjectsSection />
+
+      {/* Publications Section */}
+      <PublicationsSection />
 
       {/* Donate Section */}
       <DonateSection />

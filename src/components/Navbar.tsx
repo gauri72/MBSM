@@ -9,6 +9,7 @@ const navigation = [
   { name: 'Home', href: '#hero' },
   { name: 'About', href: '#about' },
   { name: 'Projects', href: '#projects' },
+  { name: 'Publications', href: '#publications' },
   { name: 'Donate', href: '#donate' },
   { name: 'Contact', href: '#contact' },
 ];
@@ -48,7 +49,12 @@ export default function Navbar() {
     if (element) {
       const navbarHeight = window.innerWidth >= 1024 ? 56 : 48; // 56px for desktop, 48px for mobile
       const elementPosition = element.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - navbarHeight;
+      const elementHeight = element.offsetHeight;
+      const viewportHeight = window.innerHeight;
+      
+      // Calculate position to center the section
+      const centerOffset = (viewportHeight - elementHeight) / 2;
+      const offsetPosition = elementPosition + window.pageYOffset - navbarHeight - centerOffset;
 
       window.scrollTo({
         top: offsetPosition,
