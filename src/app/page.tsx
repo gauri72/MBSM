@@ -34,7 +34,7 @@ export default function Home() {
     const encodedMessage = encodeURIComponent(messageText);
     
     // Create WhatsApp URL with the phone number and message
-    const whatsappUrl = `https://wa.me/919307256369?text=${encodedMessage}`;
+    const whatsappUrl = `https://wa.me/917588797788?text=${encodedMessage}`;
     
     // Open WhatsApp in a new tab
     window.open(whatsappUrl, '_blank');
@@ -216,7 +216,7 @@ export default function Home() {
                   <span className="inline-block bg-yellow-400 text-red-800 rounded-full p-2">
                     <FaPhone className="h-5 w-5" />
                   </span>
-                  <span className="text-sm sm:text-base">+91 9422226825</span>
+                  <span className="text-sm sm:text-base">+91 7588797788</span>
                 </div>
               </div>
             </div>

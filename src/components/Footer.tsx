@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Logo from './Logo';
-import { FaInstagram, FaYoutube } from 'react-icons/fa';
+import { FaInstagram, FaYoutube, FaWhatsapp } from 'react-icons/fa';
 
 const footerNavigation = [
   { name: 'Home', href: '#hero' },
@@ -93,6 +93,10 @@ export default function Footer() {
 
           {/* Social Icons */}
           <div className="flex space-x-4 sm:space-x-6">
+            <a href="https://wa.me/917588797788" target="_blank" rel="noopener noreferrer" className="text-white hover:text-yellow-400 transition-colors duration-200">
+              <span className="sr-only">WhatsApp</span>
+              <FaWhatsapp className="h-5 w-5 sm:h-6 sm:w-6" aria-hidden="true" />
+            </a>
             <a href="https://www.instagram.com/mangal_bhakta_seva_mandal_?igsh=NDVnb3JhendmcmFs" target="_blank" rel="noopener noreferrer" className="text-white hover:text-yellow-400 transition-colors duration-200">
               <span className="sr-only">Instagram</span>
               <FaInstagram className="h-5 w-5 sm:h-6 sm:w-6" aria-hidden="true" />
