@@ -1,163 +1,270 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import Image from 'next/image';
+import Image from "next/image";
+import { FiBook, FiCalendar, FiGlobe, FiBookOpen } from "react-icons/fi";
+import { FaWhatsapp } from "react-icons/fa";
 
 const PublicationsSection = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    quantity: '1',
-    address: ''
-  });
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    
-    // Create the message text
-    const messageText = `*Book Purchase Request*\n\nName: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.phone}\nQuantity: ${formData.quantity}\nAddress: ${formData.address}\n\nI would like to purchase the book. Please provide payment details.`;
-    
-    // Encode the message for URL
-    const encodedMessage = encodeURIComponent(messageText);
-    
-    // Create WhatsApp URL with the phone number and message
-    const whatsappUrl = `https://wa.me/917588797788?text=${encodedMessage}`;
-    
-    // Open WhatsApp in a new tab
-    window.open(whatsappUrl, '_blank');
-    
-    // Reset form
-    setFormData({
-      name: '',
-      email: '',
-      phone: '',
-      quantity: '1',
-      address: ''
-    });
+  // WhatsApp order handler
+  const handleWhatsAppOrder = () => {
+    const message = `Hello, I would like to purchase a copy of 'Shree Shankar Mahima'. Please provide payment and delivery details.`;
+    const url = `https://wa.me/917588797788?text=${encodeURIComponent(message)}`;
+    window.open(url, '_blank');
   };
 
   return (
-    <section id="publications" className="bg-red-800 min-h-screen flex items-center justify-center py-6 sm:py-8 relative z-0">
-      <div className="absolute top-0 left-0 w-full h-8 bg-spiritual-orange transform skew-y-3 origin-top-left -translate-y-full" style={{ 
-        WebkitTransform: 'skewY(3deg) translateY(-100%)',
-        transform: 'skewY(3deg) translateY(-100%)',
-        WebkitBackfaceVisibility: 'hidden',
-        backfaceVisibility: 'hidden'
-      }}></div>
-      <div className="absolute bottom-0 left-0 w-full h-8 bg-spiritual-orange transform -skew-y-3 origin-bottom-left translate-y-full" style={{ 
-        WebkitTransform: 'skewY(-3deg) translateY(100%)',
-        transform: 'skewY(-3deg) translateY(100%)',
-        WebkitBackfaceVisibility: 'hidden',
-        backfaceVisibility: 'hidden'
-      }}></div>
-      <div className="mx-auto max-w-7xl px-3 sm:px-4 lg:px-8 w-full">
-        <div className="text-center mb-8 sm:mb-12">
+    <section
+      id="publications"
+      className="bg-red-800 min-h-screen flex flex-col items-center justify-center py-16 px-2 sm:px-4"
+    >
+      <style jsx>{`
+        @keyframes fadeInUp {
+          0% {
+            opacity: 0;
+            transform: translateY(30px);
+          }
+          100% {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        
+        @keyframes slideInFromTop {
+          0% {
+            opacity: 0;
+            transform: translateY(-50px);
+          }
+          100% {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        
+        @keyframes scaleIn {
+          0% {
+            opacity: 0;
+            transform: scale(0.8);
+          }
+          100% {
+            opacity: 1;
+            transform: scale(1);
+          }
+        }
+        
+        @keyframes fadeInLeft {
+          0% {
+            opacity: 0;
+            transform: translateX(-30px);
+          }
+          100% {
+            opacity: 1;
+            transform: translateX(0);
+          }
+        }
+        
+        @keyframes fadeInRight {
+          0% {
+            opacity: 0;
+            transform: translateX(30px);
+          }
+          100% {
+            opacity: 1;
+            transform: translateX(0);
+          }
+        }
+        
+        @keyframes pulse {
+          0%, 100% {
+            transform: scale(1);
+          }
+          50% {
+            transform: scale(1.05);
+          }
+        }
+        
+        @keyframes bounce {
+          0%, 20%, 53%, 80%, 100% {
+            transform: translate3d(0,0,0);
+          }
+          40%, 43% {
+            transform: translate3d(0, -8px, 0);
+          }
+          70% {
+            transform: translate3d(0, -4px, 0);
+          }
+          90% {
+            transform: translate3d(0, -2px, 0);
+          }
+        }
+        
+
+        
+        @keyframes rotate {
+          0% {
+            transform: rotate(0deg);
+          }
+          100% {
+            transform: rotate(360deg);
+          }
+        }
+        
+        @keyframes shimmer {
+          0% {
+            background-position: -200px 0;
+          }
+          100% {
+            background-position: calc(200px + 100%) 0;
+          }
+        }
+        
+        .publications-header-animation {
+          animation: slideInFromTop 1s ease-out;
+        }
+        
+        .book-card-animation {
+          animation: scaleIn 1s ease-out 0.3s both;
+        }
+        
+        .book-image-animation {
+          animation: fadeInLeft 0.8s ease-out 0.6s both;
+        }
+        
+        .book-details-animation {
+          animation: fadeInRight 0.8s ease-out 0.9s both;
+        }
+        
+        .book-title-animation {
+          animation: fadeInUp 0.6s ease-out 1.2s both;
+        }
+        
+        .book-subtitle-animation {
+          animation: fadeInUp 0.6s ease-out 1.4s both;
+        }
+        
+        .book-description-animation {
+          animation: fadeInUp 0.6s ease-out 1.6s both;
+        }
+        
+        .features-animation {
+          animation: fadeInUp 0.6s ease-out 1.8s both;
+        }
+        
+        .price-button-animation {
+          animation: fadeInUp 0.6s ease-out 2s both;
+        }
+        
+
+        
+        .card-hover {
+          transition: all 0.3s ease-in-out;
+        }
+        
+        .card-hover:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+        }
+        
+        .image-hover {
+          transition: all 0.3s ease-in-out;
+        }
+        
+        .image-hover:hover {
+          transform: scale(1.05);
+        }
+        
+        .button-hover {
+          transition: all 0.3s ease-in-out;
+        }
+        
+        .button-hover:hover {
+          animation: pulse 0.6s ease-in-out;
+          transform: scale(1.05);
+        }
+        
+        .feature-icon-hover {
+          transition: all 0.3s ease-in-out;
+        }
+        
+        .feature-icon-hover:hover {
+          animation: rotate 1s ease-in-out;
+          transform: scale(1.2);
+        }
+        
+        .price-shimmer {
+          background: linear-gradient(90deg, #000 0%, #333 50%, #000 100%);
+          background-size: 200px 100%;
+          animation: shimmer 2s infinite;
+        }
+      `}</style>
+      <div className="mx-auto max-w-7xl w-full px-2 sm:px-4 md:px-8">
+        <div className="text-center mb-10 publications-header-animation">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 font-tiro-devanagari text-white">
             Our Publications
           </h2>
           <div className="text-lg sm:text-xl text-white/90 max-w-2xl mx-auto font-tiro-devanagari">
-            <p>Nurturing Souls Through the Power of Words</p>
+            <p>
+              Discover wisdom through our carefully crafted spiritual literature, designed to guide you on your journey of self-discovery and enlightenment.
+            </p>
           </div>
         </div>
 
-        <div className="lg:grid lg:grid-cols-3 lg:gap-x-6 items-stretch">
-          {/* First Column - Cover Image */}
-          <div className="lg:col-span-1 flex flex-col mb-6 lg:mb-0">
-            <div className="rounded-lg shadow-xl overflow-hidden flex-grow h-[400px] sm:h-[500px]">
-              <Image
-                src="/images/book-cover.jpg"
-                alt="Book Cover"
-                width={400}
-                height={600}
-                className="w-full h-full object-cover"
-                priority
-              />
+        {/* Card */}
+        <div className="relative flex justify-center items-center mb-12 book-card-animation">
+          <div className="absolute inset-0 z-0 rounded-3xl bg-yellow-400 shadow-2xl card-hover" />
+          <div className="relative z-10 w-full flex flex-col lg:flex-row items-stretch gap-y-6 sm:gap-y-8 lg:gap-y-0 lg:gap-x-6 p-4 sm:p-6 lg:p-0 overflow-hidden rounded-3xl" style={{ minHeight: '240px' }}>
+            {/* Book Image Block */}
+            <div className="flex flex-col items-stretch justify-stretch w-full lg:w-1/2 aspect-[4/3] lg:aspect-[4/3] p-0 group book-image-animation">
+              <div className="relative w-full h-[250px] sm:h-[300px] lg:h-full aspect-[4/3] overflow-hidden">
+                <Image
+                  src="/images/book-cover.jpg"
+                  alt="Book Cover"
+                  fill
+                  className="object-cover w-full h-full transition-transform duration-300 group-hover:scale-105 image-hover"
+                  priority
+                />
+              </div>
             </div>
-          </div>
-
-          {/* Second Column - Purchase Form */}
-          <div className="lg:col-span-2 flex flex-col mt-6 lg:mt-0">
-            <div className="bg-yellow-400 p-4 sm:p-6 rounded-lg shadow-xl flex-grow flex flex-col">
-              <h3 className="text-black text-lg sm:text-xl font-bold mb-4">Purchase Form</h3>
-              <form onSubmit={handleSubmit} className="space-y-4 flex-grow flex flex-col justify-between">
-                <div>
-                  <input
-                    type="text"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleInputChange}
-                    placeholder="Full Name"
-                    className="w-full p-2.5 rounded-md bg-white text-black border border-gray-300 focus:outline-none focus:border-red-800"
-                    required
-                  />
-                </div>
-                <div>
-                  <input
-                    type="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleInputChange}
-                    placeholder="Email Address"
-                    className="w-full p-2.5 rounded-md bg-white text-black border border-gray-300 focus:outline-none focus:border-red-800"
-                    required
-                  />
-                </div>
-                <div>
-                  <input
-                    type="tel"
-                    name="phone"
-                    value={formData.phone}
-                    onChange={handleInputChange}
-                    placeholder="Phone Number"
-                    className="w-full p-2.5 rounded-md bg-white text-black border border-gray-300 focus:outline-none focus:border-red-800"
-                    required
-                  />
-                </div>
-                <div>
-                  <select
-                    name="quantity"
-                    value={formData.quantity}
-                    onChange={handleInputChange}
-                    className="w-full p-2.5 rounded-md bg-white text-black border border-gray-300 focus:outline-none focus:border-red-800"
-                    required
-                  >
-                    <option value="1">1 Copy</option>
-                    <option value="2">2 Copies</option>
-                    <option value="3">3 Copies</option>
-                    <option value="4">4 Copies</option>
-                    <option value="5">5 Copies</option>
-                    <option value="more">More than 5</option>
-                  </select>
-                </div>
-                <div>
-                  <textarea
-                    name="address"
-                    value={formData.address}
-                    onChange={handleInputChange}
-                    placeholder="Delivery Address"
-                    rows={3}
-                    className="w-full p-2.5 rounded-md bg-white text-black border border-gray-300 focus:outline-none focus:border-red-800"
-                    required
-                  ></textarea>
-                </div>
-                <div>
-                  <button
-                    type="submit"
-                    className="w-full inline-block border-2 border-black px-4 py-2.5 text-sm sm:text-base font-semibold bg-yellow-400 text-black hover:bg-black hover:text-white transition-colors duration-200 rounded-full"
-                  >
-                    Purchase via WhatsApp
-                  </button>
-                </div>
-              </form>
+            {/* Book Details Block */}
+            <div className="flex-1 min-w-0 flex flex-col justify-center items-center text-center p-4 sm:p-6 lg:p-0 lg:pr-8 lg:pt-8 bg-transparent overflow-x-auto book-details-animation">
+              <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold font-tiro-devanagari text-black mb-3 sm:mb-4 truncate book-title-animation">
+                Shree Shankar Mahima
+              </h3>
+              <p className="text-base sm:text-lg lg:text-xl italic text-black font-tiro-devanagari mb-3 sm:mb-4 book-subtitle-animation">
+                A Colorful Tale of Shree Shankar Maharaj for Children
+              </p>
+              <p className="text-sm sm:text-base lg:text-lg text-black font-tiro-devanagari mb-5 sm:mb-6 book-description-animation">
+                Shree Shankar Mahima is a beautifully illustrated book that brings the divine life of Shree Shankar Maharaj to children through engaging stories and vibrant visuals. Designed in an animated style, it introduces young readers to his miracles, values, and teachings in a simple and inspiring way.
+              </p>
+              {/* Features */}
+              <div className="grid grid-cols-2 gap-x-3 sm:gap-x-6 gap-y-3 sm:gap-y-4 mb-7 sm:mb-8 text-black text-sm sm:text-base lg:text-lg font-tiro-devanagari features-animation">
+                <span className="flex items-center gap-1">
+                  <FiBook className="inline-block align-middle text-black feature-icon-hover" size={18} />
+                  82 Pages
+                </span>
+                <span className="flex items-center gap-1">
+                  <FiCalendar className="inline-block align-middle text-black feature-icon-hover" size={18} />
+                  2024 Edition
+                </span>
+                <span className="flex items-center gap-1">
+                  <FiGlobe className="inline-block align-middle text-black feature-icon-hover" size={18} />
+                  Marathi
+                </span>
+                <span className="flex items-center gap-1">
+                  <FiBookOpen className="inline-block align-middle text-black feature-icon-hover" size={18} />
+                  Hardcover
+                </span>
+              </div>
+              {/* Price Row with WhatsApp Button */}
+              <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 mb-6 price-button-animation">
+                <span className="text-xl sm:text-2xl lg:text-3xl font-bold text-black font-tiro-devanagari">₹151</span>
+                <button
+                  className="flex items-center gap-2 px-4 sm:px-6 py-2 sm:py-3 rounded-full bg-green-500 hover:bg-green-600 text-white font-semibold text-base sm:text-lg shadow transition-colors duration-200 font-tiro-devanagari button-hover"
+                  onClick={handleWhatsAppOrder}
+                >
+                  <FaWhatsapp className="inline-block align-middle text-white" size={22} />
+                  Order via WhatsApp
+                </button>
+              </div>
             </div>
           </div>
         </div>

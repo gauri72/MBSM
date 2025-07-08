@@ -1,9 +1,5 @@
 import { useState } from 'react';
 import Image from 'next/image';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation } from 'swiper/modules';
-import 'swiper/css';
-import 'swiper/css/navigation';
 
 type Project = {
   id: number;
@@ -242,6 +238,211 @@ const ProjectsSection = () => {
 
   return (
     <section className="bg-yellow-400 min-h-screen flex items-center py-8 sm:py-12 relative z-0" id="projects">
+      <style jsx>{`
+        @keyframes fadeInUp {
+          0% {
+            opacity: 0;
+            transform: translateY(30px);
+          }
+          100% {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        
+        @keyframes slideInFromTop {
+          0% {
+            opacity: 0;
+            transform: translateY(-50px);
+          }
+          100% {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        
+        @keyframes scaleIn {
+          0% {
+            opacity: 0;
+            transform: scale(0.8);
+          }
+          100% {
+            opacity: 1;
+            transform: scale(1);
+          }
+        }
+        
+        @keyframes fadeInLeft {
+          0% {
+            opacity: 0;
+            transform: translateX(-30px);
+          }
+          100% {
+            opacity: 1;
+            transform: translateX(0);
+          }
+        }
+        
+        @keyframes fadeInRight {
+          0% {
+            opacity: 0;
+            transform: translateX(30px);
+          }
+          100% {
+            opacity: 1;
+            transform: translateX(0);
+          }
+        }
+        
+        @keyframes pulse {
+          0%, 100% {
+            transform: scale(1);
+          }
+          50% {
+            transform: scale(1.05);
+          }
+        }
+        
+        @keyframes bounce {
+          0%, 20%, 53%, 80%, 100% {
+            transform: translate3d(0,0,0);
+          }
+          40%, 43% {
+            transform: translate3d(0, -8px, 0);
+          }
+          70% {
+            transform: translate3d(0, -4px, 0);
+          }
+          90% {
+            transform: translate3d(0, -2px, 0);
+          }
+        }
+        
+
+        
+        .projects-header-animation {
+          animation: slideInFromTop 1s ease-out;
+        }
+        
+        .category-filter-animation {
+          animation: fadeInUp 0.8s ease-out 0.3s both;
+        }
+        
+        .project-card-animation {
+          animation: scaleIn 0.6s ease-out both;
+        }
+        
+        .project-card-hover {
+          transition: all 0.3s ease-in-out;
+        }
+        
+        .project-card-hover:hover {
+          transform: translateY(-8px) scale(1.02);
+          box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+        
+        .category-button-hover {
+          transition: all 0.3s ease-in-out;
+        }
+        
+        .category-button-hover:hover {
+          animation: bounce 0.6s ease-in-out;
+        }
+        
+
+        
+        .stagger-animation {
+          animation-delay: calc(var(--animation-order) * 0.1s);
+        }
+        
+        .project-image-zoom {
+          transition: transform 0.3s ease-in-out;
+          overflow: hidden;
+        }
+        
+        .project-image-zoom:hover img {
+          transform: scale(1.1);
+        }
+        
+        .projects-header-hover {
+          transition: all 0.3s ease-in-out;
+        }
+        
+        .projects-header-hover:hover {
+          transform: scale(1.02);
+        }
+        
+        .project-title-hover {
+          transition: all 0.3s ease-in-out;
+        }
+        
+        .project-title-hover:hover {
+          color: #fbbf24;
+          transform: scale(1.05);
+        }
+        
+        .project-description-hover {
+          transition: all 0.3s ease-in-out;
+        }
+        
+        .project-description-hover:hover {
+          color: #f3f4f6;
+          transform: scale(1.02);
+        }
+        
+        .category-button-enhanced-hover {
+          transition: all 0.3s ease-in-out;
+          position: relative;
+          overflow: hidden;
+        }
+        
+        .category-button-enhanced-hover::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: -100%;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+          transition: left 0.5s ease-in-out;
+        }
+        
+        .category-button-enhanced-hover:hover::before {
+          left: 100%;
+        }
+        
+        .category-button-enhanced-hover:hover {
+          transform: translateY(-2px) scale(1.05);
+          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .project-card-enhanced-hover {
+          transition: all 0.4s ease-in-out;
+          position: relative;
+        }
+        
+        .project-card-enhanced-hover::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background: linear-gradient(135deg, rgba(139, 0, 0, 0.1), rgba(220, 38, 38, 0.1));
+          opacity: 0;
+          transition: opacity 0.3s ease-in-out;
+          border-radius: 1rem;
+        }
+        
+        .project-card-enhanced-hover:hover::before {
+          opacity: 1;
+        }
+        
+        .project-card-enhanced-hover:hover {
+          transform: translateY(-12px) scale(1.03);
+          box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+        }
+      `}</style>
       <div className="absolute top-0 left-0 w-full h-10 bg-spiritual-orange transform skew-y-3 origin-top-left -translate-y-full" style={{ 
         WebkitTransform: 'skewY(3deg) translateY(-100%)',
         transform: 'skewY(3deg) translateY(-100%)',
@@ -256,7 +457,7 @@ const ProjectsSection = () => {
       }}></div>
       
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center min-h-[80vh] w-full">
-        <div className="mx-auto max-w-2xl text-center mb-8 sm:mb-12">
+        <div className="mx-auto max-w-2xl text-center mb-8 sm:mb-12 projects-header-animation projects-header-hover">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight sm:text-6xl mb-4 sm:mb-6">
             Our Projects
           </h2>
@@ -266,19 +467,20 @@ const ProjectsSection = () => {
         </div>
 
         {/* Category Filter */}
-        <div className="flex flex-wrap justify-center gap-2 sm:gap-4 mb-6 sm:mb-8 w-full max-w-3xl px-4">
-          {['All', 'Events', 'Wellness', 'Annadanam', 'Education'].map((category) => (
+        <div className="flex flex-wrap justify-center gap-2 sm:gap-4 mb-6 sm:mb-8 w-full max-w-3xl px-4 category-filter-animation">
+          {['All', 'Events', 'Wellness', 'Annadanam', 'Education'].map((category, index) => (
             <button
               key={category}
               onClick={() => setSelectedCategory(category)}
-              className={`px-3 sm:px-6 py-2 rounded-full text-sm sm:text-base font-semibold transition-all duration-200 whitespace-nowrap ${
+              className={`px-3 sm:px-6 py-2 rounded-full text-sm sm:text-base font-semibold transition-all duration-200 whitespace-nowrap category-button-hover category-button-enhanced-hover ${
                 selectedCategory === category
                   ? 'bg-red-800 text-white shadow-lg'
                   : 'bg-white text-red-800 hover:bg-red-100 shadow-md'
               }`}
               style={{ 
                 WebkitTransition: 'all 0.2s ease-in-out',
-                transition: 'all 0.2s ease-in-out'
+                transition: 'all 0.2s ease-in-out',
+                animationDelay: `${index * 0.1}s`
               }}
             >
               {category}
@@ -286,91 +488,49 @@ const ProjectsSection = () => {
           ))}
         </div>
 
-        {/* Projects Slider */}
-        <div className="w-full max-w-6xl px-4">
-          <Swiper
-            modules={[Navigation]}
-            spaceBetween={16}
-            slidesPerView={1}
-            navigation={{
-              enabled: true,
-              hideOnClick: true,
-              disabledClass: 'opacity-30 cursor-not-allowed',
-              lockClass: 'cursor-not-allowed',
-            }}
-            breakpoints={{
-              320: {
-                slidesPerView: 1,
-                spaceBetween: 16,
-              },
-              480: {
-                slidesPerView: 1,
-                spaceBetween: 16,
-              },
-              640: {
-                slidesPerView: 2,
-                spaceBetween: 20,
-              },
-              768: {
-                slidesPerView: 2,
-                spaceBetween: 24,
-              },
-              1024: {
-                slidesPerView: 3,
-                spaceBetween: 24,
-              },
-            }}
-            className="projects-slider"
-            style={{
-              '--swiper-navigation-color': '#8B0000',
-              '--swiper-navigation-size': '24px',
-              WebkitTransform: 'translate3d(0,0,0)',
-              transform: 'translate3d(0,0,0)',
-              WebkitBackfaceVisibility: 'hidden',
-              backfaceVisibility: 'hidden',
-              WebkitPerspective: '1000',
-              perspective: '1000'
-            } as React.CSSProperties}
-          >
-            {filteredProjects.map((project) => (
-              <SwiperSlide key={project.id}>
-                <div 
-                  className="flex flex-col items-center text-center bg-red-800 rounded-2xl shadow-xl overflow-hidden p-4 sm:p-6 hover:scale-105 transition-transform duration-200 h-[350px] sm:h-[400px]"
-                  style={{ 
-                    WebkitTransform: 'translate3d(0,0,0)',
-                    transform: 'translate3d(0,0,0)',
-                    WebkitTransition: 'transform 0.2s ease-in-out',
-                    transition: 'transform 0.2s ease-in-out',
-                    WebkitBackfaceVisibility: 'hidden',
-                    backfaceVisibility: 'hidden',
-                    WebkitPerspective: '1000',
-                    perspective: '1000'
-                  }}
-                >
-                  <div className="relative w-full h-40 sm:h-48 mb-3 sm:mb-4 overflow-hidden rounded-lg">
-                    <Image
-                      src={project.image}
-                      alt={project.title}
-                      fill
-                      className="image-zoom object-cover rounded-lg"
-                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                      loading="lazy"
-                      style={{
-                        WebkitTransform: 'translate3d(0,0,0)',
-                        transform: 'translate3d(0,0,0)',
-                        WebkitBackfaceVisibility: 'hidden',
-                        backfaceVisibility: 'hidden',
-                        WebkitPerspective: '1000',
-                        perspective: '1000'
-                      }}
-                    />
-                  </div>
-                  <h3 className="text-lg sm:text-xl md:text-2xl font-semibold text-white mb-2 sm:mb-3 line-clamp-2">{project.title}</h3>
-                  <p className="text-sm sm:text-base leading-6 sm:leading-7 text-gray-200 line-clamp-3">{project.description}</p>
+        {/* Projects Grid */}
+        <div className="w-full max-w-7xl px-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
+            {filteredProjects.map((project, index) => (
+              <div 
+                key={project.id}
+                className="flex flex-col items-center text-center bg-red-800 rounded-2xl shadow-xl overflow-hidden p-4 sm:p-6 h-[350px] sm:h-[400px] project-card-animation project-card-hover project-card-enhanced-hover"
+                style={{ 
+                  WebkitTransform: 'translate3d(0,0,0)',
+                  transform: 'translate3d(0,0,0)',
+                  WebkitTransition: 'transform 0.2s ease-in-out',
+                  transition: 'transform 0.2s ease-in-out',
+                  WebkitBackfaceVisibility: 'hidden',
+                  backfaceVisibility: 'hidden',
+                  WebkitPerspective: '1000',
+                  perspective: '1000',
+                  animationDelay: `${index * 0.1}s`
+                }}
+              >
+                <div className="relative w-full h-40 sm:h-48 mb-3 sm:mb-4 overflow-hidden rounded-lg project-image-zoom">
+                  <Image
+                    src={project.image}
+                    alt={project.title}
+                    fill
+                    className="object-cover rounded-lg"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    loading="lazy"
+                    style={{
+                      WebkitTransform: 'translate3d(0,0,0)',
+                      transform: 'translate3d(0,0,0)',
+                      WebkitBackfaceVisibility: 'hidden',
+                      backfaceVisibility: 'hidden',
+                      WebkitPerspective: '1000',
+                      perspective: '1000',
+                      transition: 'transform 0.3s ease-in-out'
+                    }}
+                  />
                 </div>
-              </SwiperSlide>
+                <h3 className="text-lg sm:text-xl md:text-2xl font-semibold text-white mb-2 sm:mb-3 line-clamp-2 project-title-hover">{project.title}</h3>
+                <p className="text-sm sm:text-base leading-6 sm:leading-7 text-gray-200 line-clamp-3 project-description-hover">{project.description}</p>
+              </div>
             ))}
-          </Swiper>
+          </div>
         </div>
       </div>
     </section>
