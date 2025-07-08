@@ -161,70 +161,70 @@ const projects: Project[] = [
     id: 21,
     title: "Sankashti Chaturthi Khichdi",
     description: "Regular distribution of Sabudana Khichdi at Shri Vishal Ganpati, Maliwada on every Sankashti Chaturthi.",
-    image: "/images/projects/annadanam-1.jpg",
+    image: "/images/projects/Annadanam-1.jpg",
     category: "Annadanam"
   },
   {
     id: 22,
     title: "Shankar Gita Recitation",
     description: "Monthly Shankar Gita recitation and Palkhi procession on Durga Ashtami at the Math.",
-    image: "/images/projects/annadanam-2.jpg",
+    image: "/images/projects/Annadanam-2.jpg",
     category: "Annadanam"
   },
   {
     id: 23,
     title: "Gaushala Support",
     description: "Regular fodder distribution for Arunoday Gaushala to support animal welfare.",
-    image: "/images/projects/annadanam-3.jpg",
+    image: "/images/projects/Annadanam-3.jpg",
     category: "Annadanam"
   },
   {
     id: 24,
     title: "Grocery Distribution",
     description: "Regular distribution of essential groceries to those in need in the community.",
-    image: "/images/projects/annadanam-4.jpg",
+    image: "/images/projects/Annadanam-4.jpg",
     category: "Annadanam"
   },
   {
     id: 25,
     title: "Weekly Mahaprasad",
     description: "Weekly offering of Mahaprasad at the Math every Thursday for devotees.",
-    image: "/images/projects/annadanam-5.jpg",
+    image: "/images/projects/Annadanam-5.jpg",
     category: "Annadanam"
   },
   {
     id: 26,
     title: "Food Donation Program",
     description: "Regular food donation program for the needy, following the motto 'Annadan is the Supreme Donation'.",
-    image: "/images/projects/annadanam-6.jpg",
+    image: "/images/projects/Annadanam-6.jpg",
     category: "Annadanam"
   },
   {
     id: 27,
     title: "Snehalaya Support",
     description: "Special Mahaprasad arrangements for orphaned children at Snehalaya.",
-    image: "/images/projects/annadanam-7.jpg",
+    image: "/images/projects/Annadanam-7.jpg",
     category: "Annadanam"
   },
   {
     id: 28,
     title: "Police Department Support",
     description: "Special support services for the Police Department during public festivals.",
-    image: "/images/projects/annadanam-8.jpg",
+    image: "/images/projects/Annadanam-8.jpg",
     category: "Annadanam"
   },
   {
     id: 29,
     title: "Ganesh Festival Service",
     description: "Service activities for devotees and police administration during Ganesh Festival.",
-    image: "/images/projects/annadanam-9.jpg",
+    image: "/images/projects/Annadanam-9.jpg",
     category: "Annadanam"
   },
   {
     id: 30,
     title: "Kushtdham Sweet Meal",
     description: "Special sweet meal arrangements at Kushtdham on every festival occasion of the Math.",
-    image: "/images/projects/annadanam-10.jpg",
+    image: "/images/projects/Annadanam-10.jpg",
     category: "Annadanam"
   }
 ];
