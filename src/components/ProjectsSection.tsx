@@ -13,7 +13,7 @@ const projects: Project[] = [
   // Events Category
   {
     id: 1,
-    title: "Shree Rajabhau Kothari Birthday",
+    title: "Shree Rajabhau Kothari Janmdin",
     description: "Annual celebration of Shree Rajabhau Kothari's birthday with spiritual activities and community service.",
     image: "/images/projects/events-1.jpg",
     category: "Events"
