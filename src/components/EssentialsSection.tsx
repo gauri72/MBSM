@@ -1,55 +1,43 @@
 "use client";
 
 import Image from "next/image";
-import { FaWhatsapp, FaStar } from "react-icons/fa";
+import { FaWhatsapp } from "react-icons/fa";
 
 const products = [
   {
-    name: "Sacred Dhoop Sticks",
-    image: "/images/essentials/dhoop-sticks.jpg",
-    description: "Handcrafted dhoop sticks for ceremonial prayers and creating healing energy.",
-    price: "₹699",
-    rating: 5,
+    name: "Dhoop Sticks",
+    image: "/images/essentials/essentials-1.jpg",
+    description: "Sacred dhoop sticks for spiritual purification and creating positive energy in your space.",
     bg: "bg-purple-100"
   },
   {
-    name: "Premium Incense Sticks",
-    image: "/images/essentials/incense-sticks.jpg",
-    description: "Fragrant incense sticks made with all-natural ingredients for meditation and spiritual practice.",
-    price: "₹299",
-    rating: 5,
+    name: "Incense Sticks",
+    image: "/images/essentials/essentials-2.jpg",
+    description: "Fragrant incense sticks for meditation, prayer, and spiritual ceremonies.",
     bg: "bg-yellow-100"
   },
   {
-    name: "Tibetan Singing Bowl",
-    image: "/images/essentials/singing-bowl.jpg",
-    description: "Authentic Tibetan singing bowl for sound healing and deep meditation.",
-    price: "₹1,299",
-    rating: 5,
+    name: "Sandal Wood",
+    image: "/images/essentials/essentials-3.jpg",
+    description: "Pure sandalwood for spiritual purification, meditation, and sacred rituals.",
     bg: "bg-blue-100"
   },
   {
-    name: "Crystal Healing Set",
-    image: "/images/essentials/crystal-set.jpg",
-    description: "Curated collection of healing crystals for stability, energy, and protection.",
-    price: "₹799",
-    rating: 5,
+    name: "Ashtagandha",
+    image: "/images/essentials/essentials-4.jpg",
+    description: "Sacred blend of eight aromatic herbs for spiritual protection and blessings.",
     bg: "bg-pink-100"
   },
   {
-    name: "Meditation Cushion",
-    image: "/images/essentials/cushion.jpg",
-    description: "Comfortable meditation cushion for long, peaceful sessions.",
-    price: "₹999",
-    rating: 5,
+    name: "Camphor",
+    image: "/images/essentials/essentials-5.jpg",
+    description: "Pure camphor for aarti ceremonies and spiritual purification rituals.",
     bg: "bg-indigo-100"
   },
   {
-    name: "Sage Smudge Bundle",
-    image: "/images/essentials/smudge.jpg",
-    description: "Pure sage bundle for spiritual cleansing and purification rituals.",
-    price: "₹399",
-    rating: 5,
+    name: "Gulab Jal",
+    image: "/images/essentials/essentials-6.jpg",
+    description: "Sacred rose water for spiritual cleansing and divine blessings.",
     bg: "bg-yellow-100"
   }
 ];
@@ -346,22 +334,10 @@ const EssentialsSection = () => {
               </div>
               <h4 className="text-lg sm:text-xl font-bold text-white font-tiro-devanagari mb-1 product-title-hover">{product.name}</h4>
               <div className="text-sm sm:text-base text-white/90 font-tiro-devanagari mb-2 flex-1 product-description-hover">{product.description}</div>
-              <div className="flex items-center justify-between mt-2 mb-2">
-                <span className="text-base sm:text-lg font-bold text-white font-tiro-devanagari product-price-hover">{product.price}</span>
-                <span className="flex items-center gap-1 product-stars-hover">
-                  {[...Array(product.rating)].map((_, i) => (
-                    <FaStar 
-                      key={i} 
-                      className="text-yellow-400 text-base star-animation" 
-                      style={{ animationDelay: `${(idx * 0.1) + (i * 0.1)}s` }}
-                    />
-                  ))}
-                </span>
-              </div>
               <button
                 className="w-full mt-2 bg-green-500 hover:bg-green-600 text-white font-semibold py-2 rounded-full flex items-center justify-center gap-2 text-base sm:text-lg shadow transition-colors duration-200 button-hover whatsapp-button-enhanced-hover"
                 onClick={() => {
-                  const msg = `Hello, I would like to order '${product.name}'. Please provide details.`;
+                  const msg = `Namaste! 🙏 I would like to order ${product.name} from MBSM Trust. Please provide pricing and availability details. Thank you!`;
                   window.open(`https://wa.me/917588797788?text=${encodeURIComponent(msg)}`, '_blank');
                 }}
               >

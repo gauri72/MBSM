@@ -375,7 +375,7 @@ export default function Home() {
                   alt="Our Programs Image"
                   width={400}
                   height={450}
-                  className="image-zoom object-cover w-full h-[300px] sm:h-[350px] md:h-[400px]"
+                  className="image-zoom object-cover w-full h-[300px] sm:h-[350px] md:h-[400px] object-top"
                   priority
                 />
               </div>
