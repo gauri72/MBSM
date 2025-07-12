@@ -314,6 +314,64 @@ const EssentialsSection = () => {
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-black font-tiro-devanagari mb-2">Spiritual Essentials</h2>
           <div className="text-lg sm:text-xl text-black/80 font-tiro-devanagari mb-2">Sacred tools to enhance your spiritual journey</div>
         </div>
+        
+        {/* New Content Section - Text and Image */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 mb-12 items-center">
+          {/* Left Column - Text Card */}
+          <div className="flex justify-center lg:justify-start">
+            <div className="bg-gradient-to-br from-red-800 via-red-700 to-red-900 rounded-3xl shadow-2xl p-6 sm:p-8 lg:p-10 w-full max-w-2xl h-[650px] card-hover flex items-center justify-center relative overflow-hidden border-2 border-yellow-400/20">
+              {/* Decorative Elements */}
+              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-yellow-400 via-orange-400 to-yellow-400"></div>
+              <div className="absolute bottom-0 right-0 w-20 h-20 bg-yellow-400/10 rounded-full blur-xl"></div>
+              <div className="absolute top-10 right-10 w-16 h-16 bg-yellow-400/5 rounded-full blur-lg"></div>
+              
+              <div className="space-y-6 text-center relative z-10">
+                <div className="mb-4">
+                  <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white font-tiro-devanagari mb-2 drop-shadow-lg">
+                    Discover Sacred Essentials
+                  </h3>
+                  <div className="w-24 h-1 bg-yellow-400 mx-auto rounded-full"></div>
+                </div>
+                <p className="text-base sm:text-lg lg:text-xl text-white/95 font-tiro-devanagari leading-relaxed drop-shadow-sm">
+                  Our carefully curated collection of spiritual essentials includes traditional items used in daily worship, meditation, and sacred ceremonies. Each product is sourced with devotion and quality in mind, helping you create a sacred space for your spiritual practices.
+                </p>
+                <p className="text-sm sm:text-base lg:text-lg text-white/85 font-tiro-devanagari leading-relaxed drop-shadow-sm">
+                  From fragrant incense sticks to pure sandalwood, from sacred dhoop to blessed gulab jal, our essentials support your journey towards inner peace and spiritual growth. These traditional items have been used for centuries in spiritual practices and continue to bring divine blessings to homes and temples.
+                </p>
+                <p className="text-sm sm:text-base lg:text-lg text-white/85 font-tiro-devanagari leading-relaxed drop-shadow-sm">
+                  Experience the divine fragrance and sacred energy that these essentials bring to your spiritual space. Transform your home into a temple of peace, devotion, and spiritual growth with our authentic spiritual products.
+                </p>
+              </div>
+            </div>
+          </div>
+          
+          {/* Right Column - Image */}
+          <div className="flex justify-center lg:justify-end">
+            <div className="relative w-full max-w-2xl h-[650px] rounded-3xl overflow-hidden shadow-2xl image-hover group">
+              {/* Image Overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent z-10"></div>
+              
+              {/* Decorative Border */}
+              <div className="absolute inset-0 rounded-3xl border-2 border-yellow-400/30 pointer-events-none"></div>
+              
+              {/* Corner Decorations */}
+              <div className="absolute top-4 right-4 w-8 h-8 border-t-2 border-r-2 border-yellow-400/50 rounded-tr-lg"></div>
+              <div className="absolute bottom-4 left-4 w-8 h-8 border-b-2 border-l-2 border-yellow-400/50 rounded-bl-lg"></div>
+              
+              <Image
+                src="/images/shop.jpg"
+                alt="Spiritual Essentials Shop"
+                fill
+                className="object-cover transition-all duration-500 ease-in-out group-hover:scale-105 group-hover:rotate-1"
+                priority
+              />
+              
+              {/* Hover Overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-yellow-400/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out"></div>
+            </div>
+          </div>
+        </div>
+        
         {/* Product Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
           {products.map((product, idx) => (
